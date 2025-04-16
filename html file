@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Table Generator</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 5px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Multiplication Table Generator</h2>
+
+<label for="start">Start Value (2-10):</label>
+<input type="number" id="start" value="2">
+<br><br>
+
+<label for="end">End Value (2-10):</label>
+<input type="number" id="end" value="10">
+<br><br>
+
+<button onclick="generateTable()">Generate Table</button>
+
+<div id="tableContainer" style="margin-top: 20px;"></div>
+
+<script>
+  function generateTable() {
+    const start = parseInt(document.getElementById("start").value);
+    const end = parseInt(document.getElementById("end").value);
+
+    // Validate input
+    if (isNaN(start) || isNaN(end) || start < 2 || end > 10 || start > end) {
+      alert("Please enter numbers between 2 and 10");
+      return;
+    }
+
+    let tableHTML = "<table><tr><th>*</th>";
+
+    // Header row
+    for (let i = start; i <= end; i++) {
+      tableHTML += "<th>" + i + "</th>";
+    }
+    tableHTML += "</tr
